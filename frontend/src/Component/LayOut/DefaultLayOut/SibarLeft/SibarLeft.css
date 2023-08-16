@@ -1,0 +1,44 @@
+.sibarWraper ul li {
+  padding: 0 0 10px 10px;
+  margin: 5px 0;
+  display: flex;
+  align-items: center;
+}
+
+.sibarWraper ul li:hover {
+  background-color: #ccc;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.sblIcon {
+  width: 50px;
+}
+
+.sibarWraper ul li .avatarSBL {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid #5a05ed;
+  object-fit: cover;
+}
+
+.iconSBL {
+  width: 40px;
+  height: 40px;
+}
+
+.sibarWraper ul li span {
+  margin-left: 20px;
+}
+
+.sblIcon {
+  font-size: 1.8rem;
+}
+
+.showNabarLeft {
+  position: absolute;
+  width: 90%;
+  height: 100%;
+  background-color: #f0f2f5;
+}
