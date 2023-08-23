@@ -28,7 +28,10 @@ class autController {
             `<a href='${process.env.APP_URL}/api/verify/?email=${newAuth.email}&id=${newAuth._id}&token=${hashMail}'>verify</a>`
           );
         });
-        res.status(200).json("success");
+        res.status(200).json({
+          messages: "Đăng kí Thành công",
+          verify: "bạn vui lòng vào email để kích Hoạt",
+        });
       }
     } catch (error) {
       console.log(error);
@@ -112,16 +115,16 @@ class autController {
         res.status(400).json("email not Active");
       }
       if (user && vailiPassword && user.verify === true) {
-        const RefReshToken = getRefReshToken(user);
+        const RefeshToken = getRefReshToken(user);
         const AccessToken = GetAccessToken(user);
-        res.cookie("RefReshToken", RefReshToken, {
+        res.cookie("RefeshToken", RefeshToken, {
           httpOnly: true,
           secure: true,
           path: "/",
           sameSite: "strict",
         });
         const { password, ...hide } = user._doc;
-        res.json({ ...hide, RefReshToken, AccessToken });
+        res.json({ ...hide, RefeshToken, AccessToken });
       }
     } catch (error) {
       console.log(error);

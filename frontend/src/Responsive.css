@@ -1,0 +1,43 @@
+@media (min-width: 992px) {
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .searchNav {
+    width: 600px;
+  }
+}
+
+@media (max-width: 992px) {
+  .sibarRight {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .sibarlef {
+    display: none;
+  }
+  .btn-aut {
+    margin-top: 10px;
+  }
+  .showSBL {
+    display: block;
+  }
+  .authBox {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .authRight {
+    text-align: center;
+  }
+}
+
+@media (max-width: 900px) {
+  .sibarRight {
+    display: none;
+  }
+}

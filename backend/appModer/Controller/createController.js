@@ -1,12 +1,14 @@
 const express = require("express");
+const createPosts = require("../Moder/createPost");
 
 class createController {
   createPost(req, res, next) {
     try {
-      const description = req.body.description;
-      const img = req.body.img;
+      const item = new createPosts(req.body);
+      item.description;
+      item.save();
     } catch (error) {
-      next();
+      console.log(error);
     }
   }
 }

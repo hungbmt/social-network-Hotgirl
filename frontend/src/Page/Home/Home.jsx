@@ -5,9 +5,6 @@ import CTStatus from "../../Component/Home/CTStatus/CTStatus";
 import Interact from "../../Component/Home/Interact/Interact";
 import InputComment from "../../Component/Home/InPutComment/InPutComment";
 import ListComment from "../../Component/Home/ListComment/ListComment";
-
-// import AddImg from "../../icon/addimg.png";
-
 const Home = () => {
   return (
     <>

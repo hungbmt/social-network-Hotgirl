@@ -1,9 +1,9 @@
+const path = require("path");
 const express = require("express");
 const app = express();
-const path = require("path");
 const dotenv = require("dotenv");
 const cookieParser = require("cookie-parser");
-const port = 3000;
+const port = 6969;
 
 const routera = require("./Router");
 const database = require("./config/database");

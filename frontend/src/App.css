@@ -1,5 +1,4 @@
 /* reset css */
-
 * {
   box-sizing: border-box;
   padding: 0;
@@ -104,6 +103,9 @@ video {
   font: inherit;
   vertical-align: baseline;
 }
+a {
+  text-decoration: none !important;
+}
 /* HTML5 display-role reset for older browsers */
 article,
 aside,
@@ -124,6 +126,11 @@ body {
 ol,
 ul {
   list-style: none;
+}
+
+html,
+body {
+  height: 0 !important;
 }
 blockquote,
 q {

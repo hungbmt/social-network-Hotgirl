@@ -1,11 +1,11 @@
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import "antd/dist/reset.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { publicRouter } from "./Router";
 import { DefaultLayOut } from "./Component/LayOut";
 import { Fragment } from "react";
-
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./Responsive.css";
+import "antd/dist/reset.css";
 function App() {
   return (
     <div className="App">

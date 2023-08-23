@@ -1,0 +1,52 @@
+.authFornWraper {
+  width: 570px;
+  padding: 30px;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-shadow: -5px -3px 20px 0px #ccccccb8, 2px 3px 20px 0px #ccc;
+}
+
+.authFornWraper a {
+  margin: 15px auto;
+}
+
+.authInput input {
+  width: 100%;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.bnt-auth {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 6px;
+  background-color: rgba(45, 45, 245, 0.82);
+  color: white;
+  border: none;
+}
+
+.LinkForms {
+  text-align: center;
+  padding: 15px 10px;
+  background-color: #47d803cc;
+  margin-bottom: 20px;
+  border-radius: 6px;
+  color: #f9f9f9f6;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.LinkFormsWraper {
+  width: 570px;
+  margin: 20px auto;
+}

@@ -1,0 +1,19 @@
+.authWraper {
+  margin-top: 150px;
+}
+
+.authBox {
+  margin-top: 120px;
+}
+
+.authRight h3 {
+  color: #1212e6e8;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.authRight p {
+  color: #000000cc;
+  font-size: 1.6rem;
+  font-weight: 500;
+}

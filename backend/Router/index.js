@@ -4,7 +4,7 @@ const createPostRouter = require("./create");
 
 function router(app) {
   app.use("/api", authRouter);
-  app.use("/api", verifyToken, createPostRouter);
+  app.use("/api", createPostRouter);
 }
 
 module.exports = router;
