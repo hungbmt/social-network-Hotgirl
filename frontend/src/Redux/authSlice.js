@@ -3,7 +3,12 @@ import { createSlice } from "@reduxjs/toolkit";
 export const authSlice = createSlice({
   name: "auth",
   initialState: {
-    auth: {
+    login: {
+      item: null,
+      isFiching: false,
+      err: false,
+    },
+    register: {
       item: null,
       isFiching: false,
       err: false,
@@ -12,31 +17,44 @@ export const authSlice = createSlice({
   reducers: {
     // register
     registerStart: (state) => {
-      state.auth.isFiching = true;
+      state.register.isFiching = true;
     },
     registerSuccess: (state, action) => {
-      state.auth.isFiching = false;
-      state.auth.err = false;
-      state.auth.item = action.payload;
+      state.register.isFiching = false;
+      state.register.err = false;
+      state.register.item = action.payload;
     },
     registerFault: (state) => {
-      state.auth.isFiching = false;
-      state.auth.err = true;
-      state.auth.item = null;
+      state.register.isFiching = false;
+      state.register.err = true;
+      state.register.item = null;
     },
     // login
     loginStart: (state) => {
-      state.auth.isFiching = true;
+      state.login.isFiching = true;
     },
     loginSuccess: (state, action) => {
-      state.auth.isFiching = false;
-      state.auth.err = false;
-      state.auth.item = action.payload;
+      state.login.isFiching = false;
+      state.login.err = false;
+      state.login.item = action.payload;
     },
     loginFailt: (state) => {
-      state.auth.isFiching = false;
-      state.auth.err = true;
-      state.auth.item = null;
+      state.login.isFiching = false;
+      state.login.err = true;
+      state.login.item = null;
+    },
+    // logout
+    logoutstart: (state) => {
+      state.login.isFiching = true;
+    },
+    logoutSuccess: (state) => {
+      state.login.isFiching = false;
+      state.login.err = false;
+      state.login.item = null;
+    },
+    logoutfailt: (state) => {
+      state.login.err = true;
+      state.login.isFiching = false;
     },
   },
 });
@@ -50,6 +68,10 @@ export const {
   loginStart,
   loginSuccess,
   loginFailt,
+  // logout
+  logoutstart,
+  logoutSuccess,
+  logoutfailt,
 } = authSlice.actions;
 
 export default authSlice.reducer;

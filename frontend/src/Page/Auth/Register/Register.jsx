@@ -10,11 +10,13 @@ const Register = (Proms) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [avatar, setAvartar] = useState("");
   const HandleSubmitRegister = (e) => {
     e.preventDefault();
     const newItem = {
       username: username,
       email: email,
+      avatar: avatar,
       password: password,
     };
     apiRegister(dispatch, newItem);
@@ -51,6 +53,7 @@ const Register = (Proms) => {
               type="file"
               id="file"
               name="avatar"
+              onChange={(e) => setAvartar(e.target.files[0])}
             />
             <label htmlFor="file">
               <img className="registerAddAvatar" src={addAvatar} alt="" />

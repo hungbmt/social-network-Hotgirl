@@ -1,12 +1,11 @@
 const path = require("path");
+
 const multer = require("multer");
-const express = require("express");
 const randomstring = require("randomstring");
-const router = express.Router();
 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "public/avatar");
+    cb(null, "public/postImage");
   },
   filename: function (req, file, cb) {
     const uniqueSuffix = Date.now() + "-" + Math.round(Math.random() * 1e9);
@@ -31,12 +30,6 @@ const upload = multer({
   },
 });
 
-const authController = require("../appModer/Controller/autController");
-
-router.post("/register", upload.single("avatar"), authController.apiRegister);
-router.post("/login", authController.apiLogin);
-router.get("/verify", authController.verify);
-router.post("/mail/rspassword", authController.mailPassword);
-router.post("/reset/password", authController.rsPassword);
-
-module.exports = router;
+module.exports = {
+  upload,
+};

@@ -1,0 +1,112 @@
+.formPostText {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 100vh;
+  background-color: rgba(240, 248, 255, 0.712);
+  z-index: 2000;
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 1.6rem;
+  text-align: center;
+  border-radius: 50%;
+}
+
+.fontPosttextBox {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 500px;
+  height: 666px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 18px;
+}
+
+.FPTBTitile {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ccc;
+  text-align: center;
+}
+
+.fontPosttextBox textarea {
+  border: 1px solid #fff;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #ccc;
+  width: 100%;
+}
+
+.fontContentBox {
+  overflow-y: scroll;
+}
+
+.FPTInfoBox {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+
+.FPTInfoBox img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 4px solid #0c08ed;
+}
+
+.GBTIRName {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.dropdown {
+  margin-top: 3px;
+}
+.addimg {
+  margin-left: 10px;
+}
+
+.inputAddImg {
+  position: absolute;
+  padding: 6px 10px;
+  background-color: #fff;
+  border-radius: 6px;
+  margin: 5px;
+}
+
+.addimg {
+  color: black;
+  font-weight: 600;
+  font-size: 0.8rem;
+}
+
+.layoutImg {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.layoutImg img {
+  width: 33.333%;
+}
+
+.btn-font {
+  margin-top: 10px;
+  padding: 6px;
+  border: none;
+  background-color: #0c08ed;
+  border-radius: 10px;
+}

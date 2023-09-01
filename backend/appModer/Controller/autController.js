@@ -2,13 +2,14 @@ const auth = require("./../Moder/auth");
 const bcrypt = require("bcrypt");
 const { getRefReshToken, GetAccessToken } = require("../../config/token");
 const mailer = require("./../../config/mailer");
-const e = require("express");
+const express = require("express");
 const saltRounds = process.env.SALROUNDS;
 
 class autController {
   // post api register
   apiRegister(req, res, next) {
     try {
+      const avatar = req.file.filename;
       const username = req.body.username;
       const email = req.body.email;
       const password = req.body.password;
@@ -16,6 +17,7 @@ class autController {
       const hash = bcrypt.hashSync(password, salt);
       const newAuth = new auth({
         username: username,
+        avatar: avatar,
         email: email,
         password: hash,
       });
@@ -46,10 +48,12 @@ class autController {
       req.query.token
     );
     if (verifyAccount == true) {
-      await auth.updateOne(
-        { _id: req.query.id, email: req.query.email },
-        { $set: { verify: true } }
-      );
+      await auth
+        .updateOne(
+          { _id: req.query.id, email: req.query.email },
+          { $set: { verify: true } }
+        )
+        .then(() => res.status(200).json("Verify Success"));
     }
   }
 
@@ -128,7 +132,6 @@ class autController {
       }
     } catch (error) {
       console.log(error);
-      next();
     }
   }
 }

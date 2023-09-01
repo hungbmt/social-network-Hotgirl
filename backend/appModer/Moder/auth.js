@@ -29,6 +29,11 @@ const AuthSchema = new Schema(
       type: Boolean,
       default: false,
     },
+    avatar: {
+      type: String,
+      require: true,
+      default: "/avatar/avatarDefault.jpg",
+    },
   },
   {
     timestamps: true,
