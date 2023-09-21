@@ -1,14 +1,12 @@
-const ContenTop = () => {
+const ContenTop = (Proms) => {
+  const { avatar, poster } = Proms;
   return (
     <div className="contenTop">
       <div className="avatarHCT">
-        <img
-          src="https://images.pexels.com/photos/15134001/pexels-photo-15134001.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt=""
-        />
+        <img src={`${"http://localhost:6969/avatar/" + avatar}`} alt="" />
       </div>
       <div className="nameHCT">
-        <span>Nguyễn Đình hưng</span>
+        <span>{poster}</span>
         <span>23phút</span>
       </div>
     </div>

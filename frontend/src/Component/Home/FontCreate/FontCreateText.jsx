@@ -1,31 +1,47 @@
 import { Dropdown } from "react-bootstrap";
 import "./FontCreateTex.css";
 import addImg from "../../../icon/addimg.png";
-import { useState } from "react";
+import { memo, useState } from "react";
 import { apiCreate } from "../../../Redux/apiRequest";
 import { useDispatch, useSelector } from "react-redux";
-
 const FontCreateText = (Proms) => {
   const { onform, setHide } = Proms;
   const [description, setDescription] = useState("");
   const [file, SetFile] = useState(null);
+  const [filess, SetFiless] = useState();
   const dispatch = useDispatch();
   const RefeshToken = useSelector(
-    (state) => state.auth?.login?.item.RefeshToken
+    (state) => state.getAll?.getAll?.item?.RefeshToken
   );
+
+  // handle close form post --> sử lý tắt mở form tạo bài viết
   const HandleClose = () => {
     if (onform === true) {
       setHide("hide");
     }
   };
 
+  // handle Show image  --> sử lý hiện hình ảnh
+  const handleUpfile = (e) => {
+    const files = e.target.files;
+    const arrayFiles = Array.from(files);
+    const arrGidd = arrayFiles.map((item) => {
+      return URL.createObjectURL(item);
+    });
+    SetFiless(arrGidd);
+    SetFile(files);
+  };
+  console.log(filess);
+
+  // handle submit form create --> xử lý đăng bài viết lên sever
   const HandleSubmitCreate = (e) => {
     e.preventDefault();
-    const newItem = {
-      description: description,
-      postImage: file,
-    };
-    apiCreate(dispatch, newItem, RefeshToken);
+    const formdata = new FormData();
+    formdata.append("description", description);
+    for (let i = 0; i < file?.length; i++) {
+      formdata.append("postImage", file[i]);
+    }
+    apiCreate(dispatch, formdata, RefeshToken);
   };
 
   return (
@@ -48,7 +64,6 @@ const FontCreateText = (Proms) => {
                   <Dropdown.Toggle variant="success" id="dropdown-basic">
                     Ẩn/Hiện
                   </Dropdown.Toggle>
-
                   <Dropdown.Menu>
                     <Dropdown.Item href="#/action-1">Công Khai</Dropdown.Item>
                     <Dropdown.Item href="#/action-2">
@@ -75,40 +90,22 @@ const FontCreateText = (Proms) => {
                 id="file"
                 name="postImage"
                 multiple
-                onChange={(e) => SetFile(e.target.files[0])}
+                onChange={handleUpfile}
               />
               <label htmlFor="file">
                 <img src={addImg} alt="" />
                 <span className="addimg">add img</span>
               </label>
             </div>
-            <div className="layoutImg">
-              <img
-                src="https://images.pexels.com/photos/18054267/pexels-photo-18054267.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-              />
-              <img
-                src="https://images.pexels.com/photos/17685526/pexels-photo-17685526/free-photo-of-bi-n-thanh-ph-binh-minh-phong-c-nh.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-              />
-              <img
-                src="https://images.pexels.com/photos/18048288/pexels-photo-18048288/free-photo-of-anh-sang-thanh-ph-hoang-hon-d-ng-chan-tr-i.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-              />
-              <img
-                src="https://images.pexels.com/photos/18048288/pexels-photo-18048288/free-photo-of-anh-sang-thanh-ph-hoang-hon-d-ng-chan-tr-i.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-              />
-              <img
-                src="https://images.pexels.com/photos/18048288/pexels-photo-18048288/free-photo-of-anh-sang-thanh-ph-hoang-hon-d-ng-chan-tr-i.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-              />
-              <img
-                src="https://images.pexels.com/photos/18048288/pexels-photo-18048288/free-photo-of-anh-sang-thanh-ph-hoang-hon-d-ng-chan-tr-i.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                alt=""
-              />
-            </div>
           </div>
+          {filess &&
+            filess.map(() => {
+              return (
+                <div className="layoutImg">
+                  <h2>jdjjdjd</h2>;
+                </div>
+              );
+            })}
           <button className="btn-font">Send</button>
         </form>
       </div>
@@ -116,4 +113,4 @@ const FontCreateText = (Proms) => {
   );
 };
 
-export default FontCreateText;
+export default memo(FontCreateText);

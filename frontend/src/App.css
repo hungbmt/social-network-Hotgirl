@@ -171,3 +171,14 @@ table {
 .pd0 {
   padding: 0;
 }
+
+/* img in react-fb-img */
+.border:hover .slide {
+  bottom: 0;
+  height: 0 !important;
+}
+
+.cover,
+.cover-text {
+  display: none !important;
+}

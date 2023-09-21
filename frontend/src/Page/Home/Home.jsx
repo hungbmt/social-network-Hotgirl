@@ -8,8 +8,10 @@ import ListComment from "../../Component/Home/ListComment/ListComment";
 import FontCreateText from "../../Component/Home/FontCreate/FontCreateText";
 import { useEffect, useState } from "react";
 import { getAllItem } from "../../Redux/apiRequest";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import CTPText from "../../Component/Home/CTPText/CTPText";
 const Home = () => {
+  const items = useSelector((state) => state.getAll?.getAll?.item?.data);
   const [onfrom, setOnform] = useState(false);
   const [hide, setHide] = useState("hide");
   const dispatch = useDispatch();
@@ -30,37 +32,39 @@ const Home = () => {
     <>
       <Container>
         <div className="contentWraper">
-          <div className="ctPostWraper" onClick={HandleOnForm}>
-            <div className="CTPText">
-              <div className="avatarCt">
-                <img
-                  src="https://images.pexels.com/photos/17244596/pexels-photo-17244596/free-photo-of-wood-city-landscape-nature.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-                  alt=""
-                />
-              </div>
-              <input type="text" placeholder="Hưng ơi bạn có suy nghỉ gì thế" />
-            </div>
-            <div className={`formCreateWraper ${hide}`}>
-              <FontCreateText
-                onform={onfrom}
-                setFrom={setOnform}
-                setHide={setHide}
-              />
-            </div>
-            <div className="CTPUpload">
-              <span>Image/Video</span>
-              <span>Tag</span>
-              <span>Location</span>
-              <span>feelings</span>
-            </div>
-          </div>
-          <div className="contentBoxCH">
-            <ContenTop />
-            <CTStatus />
-            <Interact />
-            <InputComment />
-            <ListComment />
-          </div>
+          {items?.map((item) => {
+            return (
+              <>
+                <div className="ctPostWraper" onClick={HandleOnForm}>
+                  <CTPText />
+                  <div className={`formCreateWraper ${hide}`}>
+                    <FontCreateText
+                      onform={onfrom}
+                      setFrom={setOnform}
+                      setHide={setHide}
+                    />
+                  </div>
+                  <div className="CTPUpload">
+                    <span>Image/Video</span>
+                    <span>Tag</span>
+                    <span>Location</span>
+                    <span>feelings</span>
+                  </div>
+                </div>
+                <div className="contentBoxCH">
+                  <ContenTop avatar={item.avatar} poster={item.poster} />
+                  <CTStatus
+                    description={item.description}
+                    files={item.files}
+                    id={item._id}
+                  />
+                  <Interact />
+                  <InputComment />
+                  <ListComment />
+                </div>
+              </>
+            );
+          })}
         </div>
       </Container>
     </>

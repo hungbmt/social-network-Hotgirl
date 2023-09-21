@@ -12,6 +12,8 @@
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-dom": "^18.2.0",
+    "react-fb-image-grid": "^0.1.5",
+    "react-fb-image-video-grid": "^0.1.10",
     "react-redux": "^8.1.1",
     "react-router-dom": "^6.14.2",
     "react-scripts": "5.0.1",
